@@ -45,9 +45,9 @@
 
 ### Miscellaneous
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
-* [Requires At Top](#requires-at-top)
-* [Getters and setters](#getters-and-setters)
-* [Do not extend built-in prototypes](#do-not-extend-built-in-prototypes)
+* [在最顶端使用require](#在最顶端使用require)
+* [Getter 和 Setter](#Getter-和-Setter)
+* [不要扩展内建原型](#不要扩展内建原型)
 
 ## 格式化
 
@@ -451,13 +451,11 @@ User.findOne({ name: 'foo' }).populate('bar')
 
 ## 注释
 
-### Use slashes for comments
+### 用双斜杠进行注释
 
-Use slashes for both single line and multi line comments. Try to write
-comments that explain higher level mechanisms or clarify difficult
-segments of your code. Don't use comments to restate trivial things.
+不管是单行还是多行，始终使用双斜杠。尝试解释高层机制或者说明不同部分代码的意图，而不是附属一些显而易见的事情。
 
-*Right:*
+*正确：*
 
 ```js
 // 'ID_SOMETHING=VALUE' -> ['ID_SOMETHING=VALUE', 'SOMETHING', 'VALUE']
@@ -476,7 +474,7 @@ if (isSessionValid) {
 }
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 // Execute a regex
@@ -495,32 +493,29 @@ if (isSessionValid) {
 }
 ```
 
-## Miscellaneous
+## 杂项
 
 ### Object.freeze, Object.preventExtensions, Object.seal, with, eval
 
-Crazy shit that you will probably never need. Stay away from it.
+一些蛋碎并且你可能永远不需要使用的功能。远离它们。
 
-### Requires At Top
+### 在最顶端使用require
 
-Always put requires at top of file to clearly illustrate a file's dependencies. Besides giving an overview for others at a quick glance of dependencies and possible memory impact, it allows one to determine if they need a package.json file should they choose to use the file elsewhere.
+使用把 requires 放在文件的最前面，以说明该文件的依赖。这也可以给他人提供依赖的一览以及潜在的内存影响，这可以让人判断如果他们是否需要 package.json，那么是否选择应该在别处使用这个文件。
 
-### Getters and setters
+### Getter 和 Setter
 
-Do not use setters, they cause more problems for people who try to use your
-software than they can solve.
+别用 Setter，它们会对使用你软件的人造成更多的问题，甚至超过你的软件本身能够用来解决的问题。
 
-Feel free to use getters that are free from [side effects][sideeffect], like
-providing a length property for a collection class.
+可以随意使用没有[副作用][sideeffect]的 Getter，比如给一个集合类提供一个 length 属性。
 
 [sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
 
-### Do not extend built-in prototypes
+### 不要扩展内建原型
 
-Do not extend the prototype of native JavaScript objects. Your future self will
-be forever grateful.
+不要扩展JavaScript内建对象的原型。你未来的自己会感谢你的。
 
-*Right:*
+*正确：*
 
 ```js
 var a = [];
@@ -529,7 +524,7 @@ if (!a.length) {
 }
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 Array.prototype.empty = function() {
