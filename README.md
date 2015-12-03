@@ -6,6 +6,8 @@
 
 这份指南由 [Felix Geisendörfer](http://felixge.de/) 创建并由 [Gary Guo](http://github.com/nbdd0121) 翻译，授权在 [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) 许可证下。你被鼓励来创建这个仓库的分支并按照自己喜好进行调整。
 
+译注：这份规范自 ECMAScript 5.1 时期制定，如果你正在使用更高版本的 EMCAScript 进行编程，这份规范可能不够详尽。
+
 ![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
 ## 内容目录
@@ -145,6 +147,8 @@ while (keys.length) {
 }
 ```
 
+译注：如果你使用 EMCAScript 2015，总是使用 `let` 和 `const` 而不是 `var`。
+
 [crockfordconvention]: http://javascript.crockford.com/code.html
 
 ### 命名规范
@@ -283,7 +287,7 @@ var foo = (a === b)
 var foo = (a === b) ? 1 : 2;
 ```
 
-译注：在只有一个三元运算符的简单情况下这样做可能会被认为冗余，但是对于包含多个三元运算符的复杂表达式来说，拆成多行能够大幅增加代码清晰度。
+译注：在只有一个三元运算符的简单情况下这样做可能会被认为冗余，但是对于包含多个三元运算符的复杂表达式来说，拆成多行能够大幅增加代码清晰度。在实际应用中，浅显的条件表达式会被放在同一行中。
 
 ### 用描述性的条件
 
@@ -404,6 +408,8 @@ setTimeout(function() {
 }, 1000);
 ```
 
+译注：在实际应用中，嵌套少数层是常见的情况，特别是回调驱动的编程范式更是如此。不过如果闭包嵌套了多层，那么或许你的代码应该进行重构。
+
 
 ### 链式方法调用
 
@@ -494,6 +500,8 @@ if (isSessionValid) {
 ```
 
 ## 杂项
+
+译注：以下的内容可能不适用于框架。但对于一般性的应用程序来说，大部分情况下一下的内容是适用的。
 
 ### Object.freeze, Object.preventExtensions, Object.seal, with, eval
 
