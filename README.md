@@ -41,9 +41,9 @@
 * [链式方法调用](#链式方法调用)
 
 ### 注释
-* [Use slashes for comments](#use-slashes-for-comments)
+* [用双斜杠进行注释](#用双斜杠进行注释)
 
-### Miscellaneous
+### 杂项
 * [Object.freeze, Object.preventExtensions, Object.seal, with, eval](#objectfreeze-objectpreventextensions-objectseal-with-eval)
 * [在最顶端使用require](#在最顶端使用require)
 * [Getter 和 Setter](#Getter-和-Setter)
