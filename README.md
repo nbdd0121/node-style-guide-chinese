@@ -21,7 +21,7 @@
 * [每一个var语句只定义一个变量](#每一个var语句只定义一个变量)
 
 ### 命名规范
-* [用小写驼峰命名变量、属性和函数名](#用小写驼峰命名变量、属性和函数名)
+* [用小写驼峰命名变量、属性和函数名](#用小写驼峰命名变量属性和函数名)
 * [用大写驼峰命名类名](#用大写驼峰命名类名)
 * [用全大写命名常量](#用全大写命名常量)
 
@@ -213,12 +213,11 @@ File.fullPermissions = 0777;
 
 ## 变量
 
-### Object / Array creation
+### 对象/数组的创建
 
-Use trailing commas and put *short* declarations on a single line. Only quote
-keys when your interpreter complains:
+在末尾使用逗号，并且将*短小的* 声明放在一行中。只有在解释器会抱怨的时候才用引号包裹键：
 
-*Right:*
+*正确：*
 
 ```js
 var a = ['hello', 'world'];
@@ -228,7 +227,7 @@ var b = {
 };
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 var a = [
@@ -239,14 +238,13 @@ var b = {"good": 'code'
         };
 ```
 
-## Conditionals
+## 条件
 
-### Use the === operator
+### 使用 === 运算符
 
-Programming is not about remembering [stupid rules][comparisonoperators]. Use
-the triple equality operator as it will work just as expected.
+编程不是如何记住[逗逼的比较运算符规则][comparisonoperators]。使用三重等号，因为它会如你期望的一般工作。
 
-*Right:*
+*正确：*
 
 ```js
 var a = 0;
@@ -256,7 +254,7 @@ if (a !== '') {
 
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 var a = 0;
@@ -267,11 +265,11 @@ if (a == '') {
 
 [comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
 
-### Use multi-line ternary operator
+### 使用多行的三元运算符
 
-The ternary operator should not be used on a single line. Split it up into multiple lines instead.
+三元运算符不应该放在同一行，而应该把它拆开放在多行。
 
-*Right:*
+*正确：*
 
 ```js
 var foo = (a === b)
@@ -279,17 +277,19 @@ var foo = (a === b)
   : 2;
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 var foo = (a === b) ? 1 : 2;
 ```
 
-### Use descriptive conditions
+译注：在只有一个三元运算符的简单情况下这样做可能会被认为冗余，但是对于包含多个三元运算符的复杂表达式来说，拆成多行能够大幅增加代码清晰度。
 
-Any non-trivial conditions should be assigned to a descriptively named variable or function:
+### 用描述性的条件
 
-*Right:*
+任何不显而易见的条件都应该被赋值到一个具有描述性名字的变量或者函数：
+
+*正确：*
 
 ```js
 var isValidPassword = password.length >= 4 && /^(?=.*\d).{4,}$/.test(password);
@@ -299,7 +299,7 @@ if (isValidPassword) {
 }
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
@@ -307,7 +307,7 @@ if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
 }
 ```
 
-## Functions
+## 函数
 
 ### Write small functions
 
