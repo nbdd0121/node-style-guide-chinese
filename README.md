@@ -2,28 +2,28 @@
 
 这是一份用来编写一致并且优雅的 node.js 代码的指南。这份规范源于社群中所流行的做法，并且按照个人意见稍作修改。
 
-有一份 .jshintrc 会尽可能地实行这些规则。你可以使用并调整它，或者使用[这个脚本](https://gist.github.com/kentcdodds/11293570) 来创建你自己的。
+有一份 .jshintrc 会尽可能地实行这些规则。你可以使用并调整它，或者使用[这个脚本](https://gist.github.com/kentcdodds/11293570)来创建你自己的。
 
-这份指南由 [Felix Geisendörfer](http://felixge.de/) 创建并有 [Gary Guo](http://github.com/nbdd0121) 翻译，授权在 [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) 许可证下。你被鼓励来fork这个repo并按照自己喜好进行调整。
+这份指南由 [Felix Geisendörfer](http://felixge.de/) 创建并由 [Gary Guo](http://github.com/nbdd0121) 翻译，授权在 [CC BY-SA 3.0](http://creativecommons.org/licenses/by-sa/3.0/) 许可证下。你被鼓励来创建这个仓库的分支并按照自己喜好进行调整。
 
 ![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
 ## 内容目录
 
 ### 格式化
-* [2 Spaces for indentation](#2-spaces-for-indentation)
-* [Newlines](#newlines)
-* [No trailing whitespace](#no-trailing-whitespace)
-* [Use Semicolons](#use-semicolons)
-* [80 characters per line](#80-characters-per-line)
-* [Use single quotes](#use-single-quotes)
-* [Opening braces go on the same line](#opening-braces-go-on-the-same-line)
-* [Declare one variable per var statement](#declare-one-variable-per-var-statement)
+* [用2格空格缩进](#用2格空格缩进)
+* [换行](#换行)
+* [没有行尾空格符](#没有行尾空格符)
+* [使用分号](#使用分号)
+* [每行最多80个字符](#每行最多80个字符)
+* [使用单引号](#使用单引号)
+* [在同一行写开大括号](#在同一行写开大括号)
+* [每一个var语句只定义一个变量](#每一个var语句只定义一个变量)
 
 ### 命名规范
-* [Use lowerCamelCase for variables, properties and function names](#use-lowercamelcase-for-variables-properties-and-function-names)
-* [Use UpperCamelCase for class names](#use-uppercamelcase-for-class-names)
-* [Use UPPERCASE for Constants](#use-uppercase-for-constants)
+* [用小写驼峰命名变量、属性和函数名](#用小写驼峰命名变量、属性和函数名)
+* [用大写驼峰命名类名](#用大写驼峰命名类名)
+* [用全大写命名常量](#用全大写命名常量)
 
 ### 变量
 * [Object / Array creation](#object--array-creation)
@@ -149,48 +149,45 @@ while (keys.length) {
 
 ### 命名规范
 
-### Use lowerCamelCase for variables, properties and function names
+### 用小写驼峰命名变量、属性和函数名
 
-Variables, properties and function names should use `lowerCamelCase`.  They
-should also be descriptive. Single character variables and uncommon
-abbreviations should generally be avoided.
+变量、属性和函数名应该使用小写驼峰 `lowerCamelCase`。它们的名字应该本身就是对自己的描述。单字母的变量和不常用的缩写在通常情况下应该被避免。
 
-*Right:*
+*正确：*
 
 ```js
 var adminUser = db.query('SELECT * FROM users ...');
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 var admin_user = db.query('SELECT * FROM users ...');
 ```
 
-### Use UpperCamelCase for class names
+### 用大写驼峰命名类名
 
-Class names should be capitalized using `UpperCamelCase`.
+类名的首字母应该被大写，使用大写驼峰 `UpperCamelCase`。
 
-*Right:*
+*正确：*
 
 ```js
 function BankAccount() {
 }
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 function bank_Account() {
 }
 ```
 
-## Use UPPERCASE for Constants
+## 用全大写命名常量
 
-Constants should be declared as regular variables or static class properties,
-using all uppercase letters.
+常量应该被像常规变量或者静态类属性一样被声明，用全大写 `UPPERCASE`。
 
-*Right:*
+*正确：*
 
 ```js
 var SECOND = 1 * 1000;
@@ -200,7 +197,7 @@ function File() {
 File.FULL_PERMISSIONS = 0777;
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 const SECOND = 1 * 1000;
@@ -210,9 +207,11 @@ function File() {
 File.fullPermissions = 0777;
 ```
 
+译注：由于`const`已经在ECMAScript 2015中正式成为标准，原文中关于 [const][] 的一段文字已经被移除。但是在其认为普及的今天，仍然不推荐需要移植性的代码使用`const`。
+
 [const]: https://developer.mozilla.org/en/JavaScript/Reference/Statements/const
 
-## Variables
+## 变量
 
 ### Object / Array creation
 
