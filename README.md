@@ -26,21 +26,21 @@
 * [用全大写命名常量](#用全大写命名常量)
 
 ### 变量
-* [Object / Array creation](#object--array-creation)
+* [对象/数组的创建](#对象数组的创建)
 
-### Conditionals
-* [Use the === operator](#use-the--operator)
-* [Use multi-line ternary operator](#use-multi-line-ternary-operator)
-* [Use descriptive conditions](#use-descriptive-conditions)
+### 条件
+* [使用 === 运算符](#使用--运算符)
+* [使用多行的三元运算符](#使用多行的三元运算符)
+* [用描述性的条件](#用描述性的条件)
 
-### Functions
-* [Write small functions](#write-small-functions)
-* [Return early from functions](#return-early-from-functions)
-* [Name your closures](#name-your-closures)
-* [No nested closures](#no-nested-closures)
-* [Method chaining](#method-chaining)
+### 函数
+* [写短小的函数](#写短小的函数)
+* [尽早从函数返回](#尽早从函数返回)
+* [给你的闭包命名](#给你的闭包命名)
+* [避免嵌套闭包](#避免嵌套闭包)
+* [链式方法调用](#链式方法调用)
 
-### Comments
+### 注释
 * [Use slashes for comments](#use-slashes-for-comments)
 
 ### Miscellaneous
@@ -309,18 +309,15 @@ if (password.length >= 4 && /^(?=.*\d).{4,}$/.test(password)) {
 
 ## 函数
 
-### Write small functions
+### 写短小的函数
 
-Keep your functions short. A good function fits on a slide that the people in
-the last row of a big room can comfortably read. So don't count on them having
-perfect vision and limit yourself to ~15 lines of code per function.
+保持你的函数短小。一个好的函数能够被容纳在一张幻灯片里，并且坐在大房间最后面一排的人也能舒舒服服地读。所以别抱怨他们的视力太差，而是把每个函数的长度限制在大约15行。
 
-### Return early from functions
+### 尽早从函数返回
 
-To avoid deep nesting of if-statements, always return a function's value as early
-as possible.
+为了避免深层次嵌套 if 语句，始终尽早返回一个函数的值。
 
-*Right:*
+*正确：*
 
 ```js
 function isPercentage(val) {
@@ -336,7 +333,7 @@ function isPercentage(val) {
 }
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 function isPercentage(val) {
@@ -352,8 +349,7 @@ function isPercentage(val) {
 }
 ```
 
-Or for this particular example it may also be fine to shorten things even
-further:
+或者，对于这个例子来说，用更加简化的方法也是可行的：
 
 ```js
 function isPercentage(val) {
@@ -362,12 +358,11 @@ function isPercentage(val) {
 }
 ```
 
-### Name your closures
+### 给你的闭包命名
 
-Feel free to give your closures a name. It shows that you care about them, and
-will produce better stack traces, heap and cpu profiles.
+随心地给你的闭包命名。这表示你关心他们，并且这回产生更好的栈轨迹，堆和CPU档案。
 
-*Right:*
+*正确：*
 
 ```js
 req.on('end', function onEnd() {
@@ -375,7 +370,7 @@ req.on('end', function onEnd() {
 });
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 req.on('end', function() {
@@ -383,11 +378,11 @@ req.on('end', function() {
 });
 ```
 
-### No nested closures
+### 避免嵌套闭包
 
-Use closures, but don't nest them. Otherwise your code will become a mess.
+使用闭包，但别嵌套他们。不然你的代码会看起来一团糟。
 
-*Right:*
+*正确：*
 
 ```js
 setTimeout(function() {
@@ -399,7 +394,7 @@ function afterConnect() {
 }
 ```
 
-*Wrong:*
+*错误：*
 
 ```js
 setTimeout(function() {
@@ -410,13 +405,13 @@ setTimeout(function() {
 ```
 
 
-### Method chaining
+### 链式方法调用
 
-One method per line should be used if you want to chain methods.
+如果你想链式调用方法，把每个方法写在独立的一行。
 
-You should also indent these methods so it's easier to tell they are part of the same chain.
+你也应该缩进这些行，这样更容易分辨出它们属于同一条链。
 
-*Right:*
+*正确：*
 
 ```js
 User
@@ -427,7 +422,7 @@ User
   });
 ````
 
-*Wrong:*
+*错误：*
 
 ```js
 User
@@ -454,7 +449,7 @@ User.findOne({ name: 'foo' }).populate('bar')
   });
 ````
 
-## Comments
+## 注释
 
 ### Use slashes for comments
 
